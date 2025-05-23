@@ -4,7 +4,6 @@ const auth = require('../middleware/auth');
 
 const router = express.Router();
 
-// ✅ Submit or update a store rating
 router.post('/', auth, async (req, res) => {
   const { storeId, rating } = req.body;
 
