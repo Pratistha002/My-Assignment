@@ -9,19 +9,21 @@ function Navbar() {
 
   try {
     if (token) {
-      const decoded = jwtDecode(token);
+         const decoded = jwtDecode(token);
       role = decoded.role;
     }
   } catch {
     localStorage.removeItem('token');
     role = '';
   }
-
-  const handleLogout = () => {
+  
+       const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/');
   };
 
+    
+  
   return (
     <nav style={{ display: 'flex', justifyContent: 'space-between', background: '#333', color: 'white', padding: '10px' }}>
       <div><strong>Store Rating App</strong></div>
@@ -35,6 +37,7 @@ function Navbar() {
   );
 }
 
+         
 const btnStyle = {
   background: 'none',
   color: 'white',
