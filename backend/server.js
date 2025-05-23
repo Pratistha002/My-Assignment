@@ -5,9 +5,9 @@ const cors = require('cors');
 
 const authRoutes = require('./routes/auth');
 const storeRoutes = require('./routes/store');
-const adminRoutes = require('./routes/admin'); // ✅ Admin routes
+const adminRoutes = require('./routes/admin'); 
 
-// Load environment variables
+
 dotenv.config();
 
 // Connect to MongoDB
@@ -15,14 +15,13 @@ connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+ app.use(cors());
+  app.use(express.json());
 
 // API Routes
-app.use('/api', authRoutes);          // /api/signup, /api/login
-app.use('/api/stores', storeRoutes);  // /api/stores endpoints
-app.use('/api/admin', adminRoutes);   // /api/admin endpoints (stats, users, etc.)
+app.use('/api', authRoutes);          
+app.use('/api/stores', storeRoutes);  
+app.use('/api/admin', adminRoutes);   
 
 // Optional: Root route
 app.get('/', (req, res) => {
