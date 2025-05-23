@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom'; // ⬅️ Add Link here
+import { useNavigate, Link } from 'react-router-dom'; 
 import { jwtDecode } from 'jwt-decode';
 
 function Login() {
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  const [error, setError] = useState('');
+      const [formData, setFormData] = useState({ email: '', password: '' });
+   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -53,14 +53,18 @@ function Login() {
         <button type="submit" style={styles.button}>Login</button>
       </form>
 
-      {/* 👇 Signup redirect */}
+     
       <p style={styles.linkText}>
-        Don't have an account?{' '}
+           Don't have an account?{' '}
         <Link to="/signup" style={styles.link}>Sign up here</Link>
       </p>
-    </div>
+        </div>
   );
 }
+
+
+
+
 
 const styles = {
   container: {
