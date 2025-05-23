@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Signup() {
+    function Signup() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,9 +11,12 @@ function Signup() {
   });
 
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
+       const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+
+
+  
   function validate() {
     const newErrors = {};
     if (formData.name.length < 20 || formData.name.length > 60) {
@@ -36,7 +39,7 @@ function Signup() {
     return newErrors;
   }
 
-  function handleChange(e) {
+       function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
