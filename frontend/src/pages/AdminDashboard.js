@@ -3,12 +3,12 @@ import axios from 'axios';
 
 function AdminDashboard() {
   const [stats, setStats] = useState({});
-  const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState([]);
   const [stores, setStores] = useState([]);
-  const [userSortField, setUserSortField] = useState('name');
+    const [userSortField, setUserSortField] = useState('name');
   const [userSortAsc, setUserSortAsc] = useState(true);
   const [storeSortField, setStoreSortField] = useState('name');
-  const [storeSortAsc, setStoreSortAsc] = useState(true);
+   const [storeSortAsc, setStoreSortAsc] = useState(true);
 
   const token = localStorage.getItem('token');
 
@@ -20,9 +20,9 @@ function AdminDashboard() {
     try {
       const config = { headers: { Authorization: `Bearer ${token}` } };
       const [statsRes, usersRes, storesRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/admin/stats', config),
+           axios.get('http://localhost:5000/api/admin/stats', config),
         axios.get('http://localhost:5000/api/admin/users', config),
-        axios.get('http://localhost:5000/api/admin/stores', config)
+          axios.get('http://localhost:5000/api/admin/stores', config)
       ]);
 
       setStats(statsRes.data);
@@ -36,7 +36,7 @@ function AdminDashboard() {
   const sortByField = (list, field, asc) => {
     return [...list].sort((a, b) => {
       if (field === 'averageRating') {
-        return asc ? (a[field] || 0) - (b[field] || 0) : (b[field] || 0) - (a[field] || 0);
+         return asc ? (a[field] || 0) - (b[field] || 0) : (b[field] || 0) - (a[field] || 0);
       }
       return asc
         ? String(a[field] || '').localeCompare(b[field] || '')
@@ -54,7 +54,7 @@ function AdminDashboard() {
   };
 
   const toggleStoreSort = (field) => {
-    if (storeSortField === field) {
+     if (storeSortField === field) {
       setStoreSortAsc(!storeSortAsc);
     } else {
       setStoreSortField(field);
@@ -67,14 +67,14 @@ function AdminDashboard() {
 
   return (
     <div style={{ padding: '20px', maxWidth: '1000px', margin: 'auto' }}>
-      <h2>📊 Admin Dashboard</h2>
+      <h2> Admin Dashboard</h2>
       <p>Total Users: <strong>{stats.totalUsers}</strong></p>
       <p>Total Stores: <strong>{stats.totalStores}</strong></p>
       <p>Total Ratings: <strong>{stats.totalRatings}</strong></p>
 
       <hr />
 
-      <h3>👥 Users</h3>
+      <h3> Users</h3>
       <table border="1" cellPadding="8" width="100%">
         <thead>
           <tr>
@@ -96,7 +96,7 @@ function AdminDashboard() {
 
       <hr />
 
-      <h3>🏪 Stores</h3>
+      <h3> Stores</h3>
       <table border="1" cellPadding="8" width="100%">
         <thead>
           <tr>
